@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="people"
+		transaction-type="RESOURCE_LOCAL">
+
+		<class>jpa.eclipselink.model.Employee</class>
+		<class>jpa.eclipselink.model.Enterprise</class>
+		<class>jpa.eclipselink.model.Address</class>
+		<class>jpa.eclipselink.model.Project</class>
+		<class>jpa.eclipselink.model.Team</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="org.apache.derby.jdbc.EmbeddedDriver" />
+			 <property name="jakarta.persistence.jdbc.url"
+    value="jdbc:derby:/home/brice.despelchin/databases/simpleDb;create=true" />
+			<property name="javax.persistence.jdbc.user" value="test" />
+			<property name="javax.persistence.jdbc.password"
+				value="test" />
+
+			<!-- EclipseLink should create the database schema automatically -->
+			<property name="eclipselink.ddl-generation"
+				value="drop-and-create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="both" />
+		</properties>
+
+	</persistence-unit>
+</persistence>
