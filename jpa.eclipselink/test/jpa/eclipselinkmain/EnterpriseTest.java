@@ -130,22 +130,22 @@ public class EnterpriseTest {
 		Project glop = new Project("Glop");
 		Team devs = new Team("Devs");
 		
-		bob.setTeam(devs);
+		bob.setTeamEmployee(devs);
 		bob.addProject(glop);
-		devs.addEmployee(bob);
 		glop.addEmployee(bob);
 		en.addEmployee(bob);
 		paris.setEmployee(bob);
 		
-		em.persist(devs);
 		em.persist(glop);
 		em.persist(bob);
+		em.persist(devs);
 		em.persist(paris);
 		em.persist(en);
 		em.getTransaction().commit();
 		
 		Query q2 = em.createQuery("select en from Enterprise en where en.name = :name").setParameter("name", "SNCF");
-		assertTrue(((Enterprise) q2.getSingleResult()).getEmployees().get(1).getTeam() == devs);
+		System.out.println(((Enterprise)q2.getSingleResult()).getEmployees().get(1).getTeam());
+		assertTrue(((Enterprise) q2.getSingleResult()).getEmployees().get(1).getTeam() != null);
 		em.close();
 		
 	}
