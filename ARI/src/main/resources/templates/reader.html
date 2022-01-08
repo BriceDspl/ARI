@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Reader</title>
+</head>
+<body>
+	<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+	<h1 th:inline="text">All readers</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>Modify</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tr th:each="reader : ${readers}">
+			<td><span th:text="${reader.firstName}">FirstName</span></td>
+			<td><span th:text="${reader.lastName}">LastName</span></td>
+			<td>
+				<form th:action="@{/updateReader/{path}(path=${reader.id})}" method="post">
+					<div>
+						First Name : <input required pattern="[A-Za-z]{1,20}" name="firstName" id="firstName">
+					</div>
+					<div>
+						Last Name : <input required pattern="[A-Za-z]{1,20}" name="lastName" id="lastName">
+					</div>
+					<input type="submit" value="modify">
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/deleteReader/{path}(path=${reader.id})}" method="post"><input type="submit" value="Delete"></form>
+			</td>
+		</tr>
+	</table>
+
+	<h1 th:inline="text">Create a reader</h1>
+	<form th:action="@{/createReader}" method="post" target="dummyframe">
+		<div>
+			First Name : <input required pattern="[A-Za-z]{1,20}" name="firstName" id="firstName">
+		</div>
+		<div>
+			Last Name : <input required pattern="[A-Za-z]{1,20}" name="lastName" id="lastName">
+		</div>
+		<input type="submit" value="Create" />
+	</form>
+	
+	<a href="/home"> Back home </a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>The library</title>
+</head>
+<body>
+	<h1 th:inline="text">Welcome !</h1>
+	<!-- 
+	<span> Commentaire du projet:
+		Le sujet comporte bcp d'incohérences :
+			> Pour commencer, vous allez réaliser les pages permettant de gérer les Auteurs. Il
+			> faut développer les fonctionnalités/pages suivantes :
+				 Créer un lecteur
+				 Lister l’ensemble des lecteurs
+		Rien que là, on doit donc dev les lecteurs ou les auteurs ? 
+		Bref. Idem pour la fin de sujet om l'on nous demande de dev les books & autheurs et pas le reste. Donc cette première question est tout autant plus 
+		incohérente.
+		
+		Idem je trouve ça étrange qu'on nous demande de dev & classes & pas les liens entre toutes, les réservations etc.
+		L'utilisation de Spring en cours fut trop brève pour l'amplitude du projet (pourtant j'ai bien fait tous les tps demandés lors des séances)
+		La non-utilisation de Thymeleaf fut aussi une purge pour ce projet, N'ayant jamais fait ni de Spring ni de Thymeleaf, et le peu de documentation
+		sur cette dernière rendu le développement très fastidieux. Surtout que l'objectif étant d'apprendre le Spring, ce fut un frein à la complétion du projet.
+		Alors oui j'y ai passé trop peu de temps, mais les fêtes de fin d'années + des évènements familiaux font que je n'ai pas eu assez -pris assez- de temps pour
+		apprendre ces techs.
+		
+		Par rapport à la sélection de la bibliothèque, j'ai pas réussi. Donc je considère qu'on a qu'une et je fais tout dedans
+		Validation de pattern matching ok
+		
+		C'est tout pour moi, je reste dispo à l'adresse bricedespelchin@gmail.com si jamais.
+		Merci à vous, bonne année.
+	</span>
+	 -->
+	
+	<h2>You are in the Library.</h2>
+
+	<form th:action="@{/getReaders}" method="get">
+		<input type="submit" value="Check all readers" />
+	</form>
+	<form th:action="@{/getAuthors}" method="get">
+		<input type="submit" value="Check all authors" />
+	</form>
+</body>
+</html>
